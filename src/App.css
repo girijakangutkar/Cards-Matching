@@ -2,37 +2,291 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* after winning */
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 300px;
+  text-align: center;
+  border-radius: 17px;
+}
+
+/* 
+game css */
+.card.flipped {
+  transform: rotateY(180deg);
+  background-color: #fff;
+}
+
+#agn {
+  /* background-color: #4caf50; */
+  background-image: url("./images/play-again.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 2px solid rgb(231, 247, 250);
+  border-radius: 100px;
   color: white;
+  padding: 40px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 6px 4px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+#srt {
+  background-image: url("./images/btn.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 100px;
+  padding: 80px 80px;
+  cursor: pointer;
+  border: 2px solid rgb(231, 247, 250);
+  align-items: center;
+  animation: skew-x-shake 1.3s infinite;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes skew-x-shake {
+  0% {
+    transform: skewX(-15deg);
   }
-  to {
-    transform: rotate(360deg);
+  5% {
+    transform: skewX(15deg);
   }
+  10% {
+    transform: skewX(-15deg);
+  }
+  15% {
+    transform: skewX(15deg);
+  }
+  20% {
+    transform: skewX(0deg);
+  }
+  100% {
+    transform: skewX(0deg);
+  }
+}
+
+#h2 {
+  /* margin-top: 90px; */
+  padding-left: 25px;
+  color: white;
+  font-weight: 900;
+  font-size: 30px;
+}
+
+h1 {
+  /* color: #130855; */
+  color: #fff;
+  text-shadow: black;
+  font-weight: bolder;
+  font-size: 60px;
+}
+
+#Flips,
+#score,
+#timer {
+  border: 2px solid rgb(231, 247, 250);
+  padding: 10px;
+  text-align: center;
+  border-radius: 50px;
+  width: 900px;
+  margin: 6px;
+  color: #16870c;
+  font-weight: bolder;
+  background-color: #9fd9e9;
+}
+
+.App {
+  text-align: center;
+}
+
+.card {
+  aspect-ratio: 1;
+  background-color: #f0f0f0;
+  border: 2px solid #333;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  background-color: #fff; /* fallback color */
+  background-image: url("./images/gm.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.card.flipped {
+  background-image: none;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 20px auto;
+  max-width: 400px;
+  margin-top: 80px;
+
+  /* addition */
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em; */
+  /* aspect-ratio: 1;
+  background-color: #f0f0f0;
+  border: 2px solid #333;
+  border-radius: 5px;
+  transform-style: preserve-3d;
+  cursor: pointer; */
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px auto;
+  max-width: 700px;
+  margin-top: 50px;
+}
+
+.circle1 {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  border-radius: 40px;
+  border: 3px solid white;
+  left: 50%;
+  margin-left: -350px;
+  /* top: 120px; */
+  /* top: 174px; */
+  top: 175px;
+  background: rgb(160, 156, 156);
+  background-image: url("./images/medal.jpg");
+  background-size: contain;
+}
+
+.circle2 {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  border-radius: 40px;
+  border: 3px solid white;
+  left: 50%;
+  /* margin-left: 4px; */
+  margin-left: -110px;
+  top: 175px;
+  /* margin-left: -111px;   timer */
+  /* top: 121px; */
+  /* top:130px;  */
+  /* top: 174px; */
+  background: rgb(160, 156, 156);
+  background-image: url("./images/flip.png");
+  background-size: contain;
+}
+
+.circle3 {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  border-radius: 40px;
+  border: 3px solid white;
+  left: 50%;
+  margin-left: 123px;
+  /* top: 121px; */
+  top: 175px;
+  background: rgb(160, 156, 156);
+  background-image: url("./images/timer.png");
+  background-size: contain;
+}
+
+body {
+  background-image: url("./images/forest.png");
+  background-repeat: no-repeat;
+  background-size: 100em 47em;
+}
+
+#Flips2,
+#score2 {
+  border: 2px solid rgb(3, 3, 3);
+  text-align: center;
+  border-radius: 50px;
+  width: 220px;
+  color: #16870c;
+  font-weight: bolder;
+  font-size: 10px;
+  margin-left: 60px;
+  background-color: #9fd9e9;
+  padding-left: 60px;
+  /* height: 40px; */
+  padding: 0.3px;
+  margin: 3px;
+}
+
+.circle4 {
+  position: absolute;
+  height: 35px;
+  width: 35px;
+  border-radius: 40px;
+  border: 3px solid black;
+  margin-left: -4px;
+  /* top: 393px; */
+  /* top: 380px; */
+  /* top: 370px; */
+  top: 395px;
+  background: rgb(160, 156, 156);
+  background-image: url("./images/medal.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.circle5 {
+  position: absolute;
+  height: 35px;
+  width: 35px;
+  border-radius: 50px;
+  border: 3px solid rgb(23, 21, 21);
+  left: 50%;
+  margin-left: 3px;
+  /* top: 393px; */
+  /* top: 380px; */
+  /* top: 370px; */
+  top: 395px;
+  background: rgb(160, 156, 156);
+  background-image: url("./images/flip.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+#stars {
+  padding: 50px;
+  margin: 4px;
+}
+#win {
+  background-image: url("./images/star.png");
+  background-repeat: no-repeat;
+  background-size: 50px 60px;
+  margin-left: 127px;
+  padding: 40px;
 }
