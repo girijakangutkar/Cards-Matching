@@ -23,6 +23,6 @@ A fully responsive frontend card matching game built with React. Players match p
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/girijakangutkar/Card-Matching.git
+git clone https://github.com/girijakangutkar/Cards-Matching.git
 cd card-matching-game
 npm install
